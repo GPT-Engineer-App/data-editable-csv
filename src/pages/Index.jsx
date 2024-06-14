@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, VStack, Text, Button, Input, Table, Thead, Tbody, Tr, Th, Td, IconButton } from '@chakra-ui/react';
+import { Container, VStack, Text, Button, Input, Table, Thead, Tbody, Tr, Th, Td, IconButton, useColorModeValue } from '@chakra-ui/react';
 import { FaPlus, FaTrash, FaDownload } from 'react-icons/fa';
 import Papa from 'papaparse';
 
@@ -48,8 +48,11 @@ const Index = () => {
     document.body.removeChild(link);
   };
 
+  const bg = useColorModeValue("white", "gray.800");
+  const color = useColorModeValue("black", "white");
+
   return (
-    <Container centerContent maxW="container.xl" py={10}>
+    <Container centerContent maxW="container.xl" py={10} bg={bg} color={color}>
       <VStack spacing={4} width="100%">
         <Text fontSize="2xl">CSV Upload and Edit Tool</Text>
         <Input type="file" accept=".csv" onChange={handleFileUpload} />
